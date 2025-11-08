@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import post05Img from "@images/post-05.png";
+import MainLayout from "src/layouts/MainLayout.astro";
+---
+
+<MainLayout title="Imágenes">
+  <h1 class="text-5xl">Imágenes</h1>
+
+  <img src="/assets/images/post-05.png" width="250" height="250" />
+
+  <Image src={post05Img} alt="Imagen de ejemplo" width={250} height={250} />
+
+  <h1>Quality Low</h1>
+  <Image
+    quality="low"
+    src={post05Img}
+    alt="Imagen de ejemplo"
+    width={250}
+    height={250}
+  />
+
+  <h1>Formatos</h1>
+  <Image
+    src={post05Img}
+    format="jpg"
+    alt="Imagen de ejemplo"
+    width={250}
+    height={250}
+  />
+
+  <h1>Picture</h1>
+  <Picture
+    src={post05Img}
+    widths={[240, 540, 720, post05Img.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${post05Img.width}px`}
+    format="jpg"
+    alt="Imagen de ejemplo"
+    width={250}
+    height={250}
+  />
+
+</MainLayout>
+
+<style>
+  @reference "tailwindcss"
+
+  h1 {
+    @apply text-white mt-10;
+  }
+</style>
