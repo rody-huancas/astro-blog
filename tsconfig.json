@@ -3,8 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths"  : {
-      "@utils/*" : ["./src/utils/*"],
-      "@images/*": ["./src/assets/images/*"],
+      "@utils/*"  : ["./src/utils/*"],
+      "@styles/*" : ["./src/styles/*"],
+      "@images/*" : ["./src/assets/images/*"],
     }
   },
   "include": [".astro/types.d.ts", "**/*"],
