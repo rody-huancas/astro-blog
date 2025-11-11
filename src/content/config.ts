@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 const blogCollection = defineCollection({
   type  : "content",
@@ -13,12 +13,29 @@ const blogCollection = defineCollection({
       message: "La imagen debe tener un ancho menor a 1200 píxeles.",
     }),
     // relación
-    author: z.string(),
+    // author: z.string(),
+
+    author: reference("author"),
+
     // relación
     tags: z.array(z.string()),
   }),
 });
 
+const authorCollection = defineCollection({
+  type  : "data",
+  schema: ({ image }) => z.object({
+    name  : z.string(),
+    avatar: image().refine((img) => {
+      if (!img || typeof img.width !== "number") return true;
+      return img.width < 400;
+    }, {
+      message: "El avatar debe tener un ancho menor a 400 píxeles.",
+    }),
+  }),
+})
+
 export const collections = {
-  blog: blogCollection,
+  blog  : blogCollection,
+  author: authorCollection,
 };
