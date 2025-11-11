@@ -1,10 +1,10 @@
 ---
-title: CSS Grid Layout - Una guía completa
-date: 2023-06-25
+title      : CSS Grid Layout - Una guía completa
+date       : 2023-06-25
 description: Aprende a utilizar CSS Grid Layout para crear diseños complejos de forma sencilla.
-author: Emily Davis
-image: 'images/post-05.png'
-tags: [CSS, Web Design, Frontend]
+author     : jane-doe
+image      : 'images/post-05.png'
+tags       : [CSS, Web Design, Frontend]
 ---
 
 # CSS Grid Layout: Una guía completa
