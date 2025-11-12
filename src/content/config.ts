@@ -24,7 +24,7 @@ const blogCollection = defineCollection({
   }),
 });
 
-const authorCollection = defineCollection({
+const authorsMetadataCollection = defineCollection({
   type  : "data",
   schema: ({ image }) => z.object({
     name  : z.string(),
@@ -34,10 +34,15 @@ const authorCollection = defineCollection({
     }, {
       message: "El avatar debe tener un ancho menor a 400 píxeles.",
     }),
+    twitter : z.string().optional(),
+    linkedin: z.string().optional(),
+    github  : z.string().optional(),
+    bio     : z.string().optional(),
+    subtitle: z.string().optional(),
   }),
 })
 
 export const collections = {
-  blog  : blogCollection,
-  author: authorCollection,
+  blog           : blogCollection,
+  authorsmetadata: authorsMetadataCollection,
 };
